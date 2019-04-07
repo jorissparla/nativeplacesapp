@@ -28,6 +28,7 @@ export const Hello: React.FC<Props> = () => {
   function handleDeleteItem() {
     dispatch(deletePlace());
   }
+  console.log("render");
   return (
     <View style={styles.container}>
       <PlaceDetail

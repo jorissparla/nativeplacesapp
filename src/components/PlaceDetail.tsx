@@ -1,6 +1,7 @@
 import * as React from "react";
-import { View, Modal, Image, Text, Button, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { View, Modal, Image, Text, Button, StyleSheet, TouchableWithoutFeedback, TouchableOpacity } from "react-native";
 import { Place } from "../types/Place";
+import Icon from "react-native-vector-icons/Ionicons";
 
 interface Props {
   selectedPlace: Place;
@@ -17,8 +18,13 @@ const PlaceDetail: React.FC<Props> = ({ selectedPlace, onDeleteItem, onModalClos
         <Image resizeMode="contain" source={image} style={styles.placeImage} />
         <Text style={styles.placeName}>{name}</Text>
         <View style={styles.buttons}>
-          <Button color="red" title="Close" onPress={onModalClose} />
-          <Button color="#000" title="Delete" onPress={onDeleteItem} />
+          <TouchableOpacity onPress={onDeleteItem}>
+            <View style={styles.deleteButton}>
+              <Icon size={30} name="ios-trash" color="red" />
+            </View>
+          </TouchableOpacity>
+          <Button color="black" title="Close" onPress={onModalClose} />
+          {/* <Button color="#000" title="Delete" onPress={onDeleteItem} /> */}
         </View>
       </View>
     </Modal>
@@ -35,6 +41,10 @@ const styles = StyleSheet.create({
   },
   button1: {
     backgroundColor: "#000",
+    margin: 10
+  },
+  deleteButton: {
+    alignItems: "center",
     margin: 10
   },
   placeImage: {

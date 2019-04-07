@@ -22,7 +22,9 @@ const PlaceInput: React.FC<Props> = ({ handleAddPlace }) => {
         onChangeText={text => setName(text)}
         style={styles.placeInput}
       />
-      <Button title="Add" onPress={() => onAddPlace(name)} style={styles.placeButton} />
+      <View style={styles.placeButton}>
+        <Button title="Add" onPress={() => onAddPlace(name)} />
+      </View>
     </View>
   );
 };

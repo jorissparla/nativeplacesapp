@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Place } from "../src/types/Place";
+import { Place } from "./types/Place";
 import { useState } from "react";
 const placeImage = { uri: "https://c1.staticflickr.com/5/4096/4744241983_34023bf303_b.jpg" };
 let initialValue: Place[] = [];
